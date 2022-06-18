@@ -1,12 +1,13 @@
-import styles from '../styles/pages/home.module.sass'
-import Particle from 'react-particles-js'
-import particlesConfig from '../assets/particlesConfig.json'
+import { Box } from '@chakra-ui/react'
+import React, { useState, useEffect } from 'react'
+import { CustomTable } from '../components/Tables/CustomTable'
 
-export default function Home() {
-  return (
-    <div className={styles.hero}>
-      <Particle params={particlesConfig} className="App-particles__container" />
-      <p className={styles.hero__text}>Ad Astra Et Aeternitatem Traveler!</p>
-    </div>
-  )
+const HomePage = () => {
+  const [isLoading, setIsLoading] = useState(true)
+  useEffect(() => {
+    setIsLoading(false)
+  }, [])
+  return <Box>{!isLoading && <CustomTable />}</Box>
 }
+
+export default HomePage
