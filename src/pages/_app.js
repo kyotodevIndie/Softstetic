@@ -1,10 +1,17 @@
+import { ChakraProvider } from '@chakra-ui/react'
+import { theme } from '../styles/theme'
 import '../styles/globals.sass'
+import { Layout } from '../components/Layout'
+import { useRouter } from 'next/router'
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
+  const routeProps = useRouter()
   return (
-    <>
-      <Component {...pageProps} />
-    </>
+    <ChakraProvider theme={theme}>
+      <Layout useLayout={routeProps.pathname !== '/login' && true}>
+        <Component {...pageProps} />
+      </Layout>
+    </ChakraProvider>
   )
 }
 
