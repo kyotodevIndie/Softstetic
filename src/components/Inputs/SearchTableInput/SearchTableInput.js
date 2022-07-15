@@ -7,18 +7,19 @@ import {
 } from '@chakra-ui/react'
 import { FiSearch } from 'react-icons/fi'
 
-export const SearchInputTable = ({ data, setData, ...rest }) => {
+export const SearchTableInput = ({ data, setData, ...rest }) => {
   const [inputValue, setInputValue] = React.useState('')
-  const filterDataTable = (value) => {
-    setInputValue(value)
-    data.map((item) => {})
+  const filterDataTable = (e) => {
+    console.log(e.target.value)
+    //filtro aq
+    setInputValue(e.target.value)
   }
   return (
     <InputGroup w={'40%'}>
       <Input
         {...rest}
         value={inputValue}
-        onChange={(value) => filterDataTable(value)}
+        onChange={(e) => filterDataTable(e)}
       />
       <InputRightElement>
         <IconButton

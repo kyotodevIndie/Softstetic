@@ -12,8 +12,17 @@ import {
   Box,
   useColorModeValue,
 } from '@chakra-ui/react'
+import { useForm } from 'react-hook-form'
+import { useAuth } from '../context/AuthContext'
 
 const LoginPage = () => {
+  const { register, handleSubmit } = useForm()
+  const { signIn } = useAuth
+
+  async function handleSignIn(data) {
+    await signIn(data)
+  }
+
   return (
     <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
       <Flex flex={1} display={['none', 'none', 'flex']}>
@@ -21,7 +30,7 @@ const LoginPage = () => {
           alt={'Login Image'}
           objectFit={'cover'}
           src={
-            'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80'
+            'https://images.unsplash.com/photo-1641300142587-17b25c022b1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
           }
         />
       </Flex>
@@ -35,27 +44,29 @@ const LoginPage = () => {
             p={'10%'}
           >
             <Heading fontSize={'2xl'}>Logue na sua conta!</Heading>
-            <FormControl id="email" mt={5}>
-              <FormLabel>Email</FormLabel>
-              <Input type="email" />
-            </FormControl>
-            <FormControl id="password" mt={5}>
-              <FormLabel>Senha</FormLabel>
-              <Input type="password" />
-            </FormControl>
-            <Stack spacing={6} mt={5}>
-              <Stack
-                direction={{ base: 'column', sm: 'row' }}
-                align={'start'}
-                justify={'space-between'}
-              >
-                <Checkbox>Lembre-se de mim</Checkbox>
-                <Link color={'blue.500'}>Esqueci a senha</Link>
+            <form onSubmit={handleSubmit(handleSignIn)}>
+              <FormControl id="email" mt={5}>
+                <FormLabel>Email</FormLabel>
+                <Input type="email" {...register('email')} />
+              </FormControl>
+              <FormControl id="password" mt={5}>
+                <FormLabel>Senha</FormLabel>
+                <Input {...register('password')} type="password" />
+              </FormControl>
+              <Stack spacing={6} mt={5}>
+                <Stack
+                  direction={{ base: 'column', sm: 'row' }}
+                  align={'start'}
+                  justify={'space-between'}
+                >
+                  <Checkbox>Lembre-se de mim</Checkbox>
+                  <Link color={'blue.500'}>Esqueci a senha</Link>
+                </Stack>
+                <Button colorScheme={'blue'} variant={'solid'}>
+                  Login
+                </Button>
               </Stack>
-              <Button colorScheme={'blue'} variant={'solid'}>
-                Login
-              </Button>
-            </Stack>
+            </form>
           </Box>
         </Stack>
       </Flex>

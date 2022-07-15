@@ -1,7 +1,8 @@
 import React from 'react'
+import { CustomTable } from '../components/Tables/CustomTable'
 
 const ProcedurePage = () => {
-  return <div>procedure</div>
+  return <CustomTable />
 }
 
 export default ProcedurePage

@@ -10,11 +10,11 @@ export const NavItem = ({ icon, name, route, children, ...rest }) => {
     >
       <Tooltip hasArrow label={name} placement="right">
         <Flex
-          align="center"
-          w={['auto', 'auto', '48px']}
+          align={'center'}
+          w={['auto', 'auto', 'auto', 'auto', '48px', '48px']}
           p="4"
           mx="4"
-          borderRadius="lg"
+          borderRadius="xl"
           role="group"
           cursor="pointer"
           fontSize={'16'}
@@ -34,7 +34,9 @@ export const NavItem = ({ icon, name, route, children, ...rest }) => {
               as={icon}
             />
           )}
-          <Text display={['flex', 'flex', 'none']}>{name}</Text>
+          <Text display={['flex', 'flex', 'flex', 'flex', 'none', 'none']}>
+            {name}
+          </Text>
         </Flex>
       </Tooltip>
     </Link>

@@ -22,16 +22,16 @@ export const Navbar = ({ onOpen, ...rest }) => {
 
   return (
     <Flex
-      ml={{ base: 0, md: 60 }}
-      px={{ base: 4, md: 4 }}
+      ml={{ base: 0, xl: 60 }}
+      px={{ base: 4, xl: 4 }}
       height={['8vh', '8vh', '9vh']}
       alignItems="center"
       bg={useColorModeValue('white', 'gray.900')}
-      justifyContent={{ base: 'space-between', md: 'flex-end' }}
+      justifyContent={{ base: 'space-between', xl: 'flex-end' }}
       {...rest}
     >
       <IconButton
-        display={{ base: 'flex', md: 'none' }}
+        display={{ base: 'flex', xl: 'none' }}
         onClick={onOpen}
         variant="outline"
         aria-label="open menu"
@@ -39,7 +39,7 @@ export const Navbar = ({ onOpen, ...rest }) => {
       />
 
       <Text
-        display={{ base: 'flex', md: 'none' }}
+        display={{ base: 'flex', xl: 'none' }}
         fontSize="2xl"
         fontFamily="monospace"
         fontWeight="bold"
@@ -47,13 +47,14 @@ export const Navbar = ({ onOpen, ...rest }) => {
         Logo
       </Text>
 
-      <HStack spacing={{ base: '0', md: '6' }}>
+      <HStack spacing={{ base: '0', xl: '6' }}>
         <IconButton
-          size="lg"
+          size="xl"
           variant="ghost"
           aria-label="open menu"
           icon={colorMode === 'light' ? <FiMoon /> : <FiSun />}
           onClick={toggleColorMode}
+          mr={['20px', '20px', '20px', '20px', '0px', '0px']}
         />
         <Flex alignItems={'center'}>
           <Menu>
@@ -65,12 +66,10 @@ export const Navbar = ({ onOpen, ...rest }) => {
               <HStack>
                 <Avatar
                   size={'sm'}
-                  src={
-                    'https://images.unsplash.com/photo-1619946794135-5bc917a27793?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9'
-                  }
+                  src={'https://github.com/kyotodevindie.png'}
                 />
                 <VStack
-                  display={{ base: 'none', md: 'flex' }}
+                  display={{ base: 'none', xl: 'flex' }}
                   alignItems="flex-start"
                   spacing="1px"
                   ml="2"
@@ -80,7 +79,7 @@ export const Navbar = ({ onOpen, ...rest }) => {
                     Admin
                   </Text>
                 </VStack>
-                <Box display={{ base: 'none', md: 'flex' }}>
+                <Box display={{ base: 'none', xl: 'flex' }}>
                   <FiChevronDown />
                 </Box>
               </HStack>
@@ -93,7 +92,7 @@ export const Navbar = ({ onOpen, ...rest }) => {
                 <ChangePasswordModal />
               </MenuItem>
               <MenuDivider />
-              <MenuItem>Deslogar</MenuItem>
+              <MenuItem>Sair</MenuItem>
             </MenuList>
           </Menu>
         </Flex>
