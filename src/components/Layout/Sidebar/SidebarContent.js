@@ -13,7 +13,7 @@ export const SidebarContent = ({ onClose, ...rest }) => {
     <Box
       transition="3s ease"
       bg={useColorModeValue('white', 'gray.900')}
-      w={{ base: 'full', md: '80' }}
+      w={{ base: 'full', xl: '80' }}
       pos="fixed"
       h="full"
       {...rest}
@@ -22,19 +22,26 @@ export const SidebarContent = ({ onClose, ...rest }) => {
         <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
           Logo
         </Text>
-        <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
+        <CloseButton display={{ base: 'flex', xl: 'none' }} onClick={onClose} />
       </Flex>
       <Box
         display={'flex'}
         h={'full'}
         flexDirection={'column'}
-        justifyContent={'center'}
+        justifyContent={[
+          'flex-start',
+          'flex-start',
+          'flex-start',
+          'flex-start',
+          'center',
+          'center',
+        ]}
       >
         {LinkItems.map((link, index) => (
           <Box
             key={link.name}
             mb={'20px'}
-            mt={index === 0 ? [0, 0, '-150px'] : null}
+            mt={index === 0 ? [0, 0, 0, 0, '-150px'] : null}
           >
             <NavItem icon={link.icon} route={link.route} name={link.name} />
           </Box>

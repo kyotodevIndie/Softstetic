@@ -9,13 +9,17 @@ import {
   chakra,
   Text,
   useDisclosure,
+  IconButton,
 } from '@chakra-ui/react'
 import React from 'react'
-import { FiChevronDown, FiChevronUp } from 'react-icons/fi'
+import { FiChevronDown, FiChevronUp, FiEdit3, FiTrash } from 'react-icons/fi'
 import { useTable, useSortBy } from 'react-table'
 import { DefaultButton } from '../DefaultButton'
-import { SearchInputTable } from '../Inputs/SearchInputTable/SearchInputTable'
 import { AddPatientModal } from '../Modals/CRUD/AddModal/AddModal'
+import { DeleteDialog } from '../Dialog/DeleteDialog'
+import { SearchTableInput } from '../Inputs/SearchTableInput/SearchTableInput'
+import { AddPatientModal } from '../Modals/AddModal/AddModal'
+import { UpdateModal } from '../Modals/UpdateModal/UpdateModal'
 
 function DataTable({ data }) {
   const columns = React.useMemo(
@@ -79,6 +83,12 @@ function DataTable({ data }) {
                   {cell.render('Cell')}
                 </Td>
               ))}
+              <Td>
+                <UpdateModal />
+              </Td>
+              <Td>
+                <DeleteDialog />
+              </Td>
             </Tr>
           )
         })}
@@ -105,9 +115,54 @@ export const CustomTable = () => {
       age: 34,
       procedure: 'chute',
     },
+    {
+      name: 'macaco',
+      age: 12,
+      procedure: 'cossada',
+    },
+    {
+      name: 'amor',
+      age: 25,
+      procedure: 'lapada',
+    },
+    {
+      name: 'quebrado',
+      age: 34,
+      procedure: 'chute',
+    },
+    {
+      name: 'macaco',
+      age: 12,
+      procedure: 'cossada',
+    },
+    {
+      name: 'amor',
+      age: 25,
+      procedure: 'lapada',
+    },
+    {
+      name: 'quebrado',
+      age: 34,
+      procedure: 'chute',
+    },
+    {
+      name: 'macaco',
+      age: 12,
+      procedure: 'cossada',
+    },
+    {
+      name: 'amor',
+      age: 25,
+      procedure: 'lapada',
+    },
+    {
+      name: 'quebrado',
+      age: 34,
+      procedure: 'chute',
+    },
   ])
   return (
-    <Box w="60%" py="5px" borderRadius={'lg'} bg={'#fff'}>
+    <Box w="60%" py="5px" borderRadius={'lg'} bg={'#fff'} height={'86.5vh'}>
       <Text m={'1vw'} fontSize="lg">
         Pacientes
       </Text>
@@ -117,8 +172,9 @@ export const CustomTable = () => {
         justifyContent={'space-between'}
         alignItems={'center'}
         m={'1vw'}
+        mb={'2v2'}
       >
-        <SearchInputTable
+        <SearchTableInput
           placeholder="Buscar Pacientes"
           data={data}
           setData={setData}
@@ -126,7 +182,9 @@ export const CustomTable = () => {
         <DefaultButton text="Novo Paciente" onClick={onOpen} />
         <AddPatientModal variant="patients" isOpen={isOpen} onClose={onClose} />
       </Box>
-      <DataTable data={data} />
+      <Box overflowY={'scroll'} h={'82%'}>
+        <DataTable data={data} />
+      </Box>
     </Box>
   )
 }

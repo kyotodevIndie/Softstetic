@@ -25,7 +25,7 @@ export const theme = extendTheme({
     black: 900,
   },
   config: {
-    initialColorMode: 'dark',
+    initialColorMode: 'light',
     useSystemColorMode: false,
   },
 })

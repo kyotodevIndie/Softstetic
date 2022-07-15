@@ -38,6 +38,7 @@ export const ChangePasswordModal = () => {
         finalFocusRef={finalRef}
         isOpen={isOpen}
         onClose={onClose}
+        isCentered
       >
         <ModalOverlay />
         <ModalContent>

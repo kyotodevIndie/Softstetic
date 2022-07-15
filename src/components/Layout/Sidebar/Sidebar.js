@@ -16,7 +16,7 @@ export const SideBar = ({ children }) => {
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
       <SidebarContent
         onClose={() => onClose}
-        display={{ base: 'none', md: 'block' }}
+        display={{ base: 'none', xl: 'block' }}
       />
       <Drawer
         autoFocus={false}
@@ -34,12 +34,12 @@ export const SideBar = ({ children }) => {
       {/* mobilenav */}
       <Navbar onOpen={onOpen} />
       <Box
-        ml={{ base: 0, md: 60 }}
+        ml={{ base: 0, xl: 60 }}
         p="4"
-        bg={['green', 'pink', 'aquamarine', 'teal', 'orange', 'lavender']}
-        borderRadius={[0, 0, '20px 0 0 0']}
+        bg={['salmon', 'pink', 'aquamarine', 'teal', 'orange', 'lavender']}
+        borderRadius={[0, 0, 0, 0, '20px 0 0 0', '20px 0 0 0']}
         minH={['92vh', '92vh', '91vh']}
-        minW={['100vw', '100vw', '90vw', '93vw', '94vw', '95vw']}
+        minW={['100vw', '100vw', '100vw', '100vw', '94vw', '95vw']}
         position={['relative', 'relative', 'absolute']}
         right={0}
         top={[0, 0, '9vh']}
