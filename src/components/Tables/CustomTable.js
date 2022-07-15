@@ -15,7 +15,7 @@ import { FiChevronDown, FiChevronUp } from 'react-icons/fi'
 import { useTable, useSortBy } from 'react-table'
 import { DefaultButton } from '../DefaultButton'
 import { SearchInputTable } from '../Inputs/SearchInputTable/SearchInputTable'
-import { AddPatientModal } from '../Modals/AddModal/AddModal'
+import { AddPatientModal } from '../Modals/CRUD/AddModal/AddModal'
 
 function DataTable({ data }) {
   const columns = React.useMemo(
